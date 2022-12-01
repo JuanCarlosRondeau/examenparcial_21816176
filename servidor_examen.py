@@ -25,8 +25,8 @@ class Servidor():  # se hace una clase para llamarla como el main en c
         threading.Thread(target=self.procesarC, daemon=True).start()
 
         while True:
-            #array_dimensiones=[6176,21,21,6176]
-            array_dimensiones=[30,52,52,41]
+            array_dimensiones=[6176,21,21,6176]
+            #array_dimensiones=[30,52,52,41]
             # FxC x CxP
             # En la posición 0 del array está el número de filas de tiene la matriz 1 y en la posición 1 el número de columnas
             # En la posición 2 del array está el número de filas de tiene la matriz 1 y en la posición 3 el número de columnas
