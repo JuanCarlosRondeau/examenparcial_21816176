@@ -21,7 +21,7 @@ class Cliente():
         while True:
             msg = input(
                 '\nEscriba texto ?   ** Enviar = ENTER   ** Salir Chat = 1 \n')
-            with open("u22251035AI1.txt", "a") as f:
+            with open("examenparcial_21816176.txt", "a") as f:
                 f.write("\n" + nickname + ":" + msg)
                 f.close()
             if msg != '1':
@@ -74,7 +74,6 @@ class Cliente():
         MC = mp.RawArray('i', n_fil_A * n_col_B)
         cores = []  # Array para guardar los cores y su trabajo
         # Asigno a cada core el trabajo que le toca, ver excel adjunto
-        print("heeeey")
         for core in range(n_cores):
             # Calculo i para marcar inicio del trabajo del core en relacion a las filas
             i_MC = min(core * size_fil, n_fil_A)
@@ -86,11 +85,10 @@ class Cliente():
         print(len(cores))
         for core in cores:
             core.start()  # Arranco y ejecuto el trabajo para c/ uno de los cores que tenga mi equipo, ver excel
-        print("hey3")
         '''for core in cores:
             core.join()  # Bloqueo cualquier llamada hasta que terminen su trabajo todos los cores'''
 
-        print("hey4")  # Convierto el array unidimensional MC en una matrix 2D (C_2D)
+          # Convierto el array unidimensional MC en una matrix 2D (C_2D)
         C_2D = [[0] * n_col_B for i in range(n_fil_A)]
         for i in range(n_fil_A):  # i para iterar sobre las filas de A
             for j in range(n_col_B):  # j para iterar sobre las columnas de B
@@ -127,8 +125,7 @@ class Cliente():
                      for j in range(data1[2])]
                 # Imprimo las matrices que se van a multiplicar para poder comprobar que son las correctas
                 print(A)
-                print(B)
-
+                #print(B)
                 # En la variable matriz_result se guarda el resultado de la multiplicación de matrices
                 import time
                 Tiempo_Inicio_Secuencial = time.time()
@@ -137,6 +134,13 @@ class Cliente():
                 Tiempo_Total_Secuencial = Tiempo_Final_Secuencial - Tiempo_Inicio_Secuencial
                 print("Ha tardado en multiplicar de forma secueuncial " + str(Tiempo_Total_Secuencial))
                 # Imprimo een el cliente el resultado para comprobar que todo va bien
+                
+                file = open("examenparcial_21816176.txt", "w")
+                file.write("\n Tiempo Secuencial: " + str(Tiempo_Total_Secuencial))
+                file.write("\n Tamaño de A  -> Filas: " + str(len(A) +"   Columnas: " + str(len(A[0]))))
+                file.write("\n Tamaño de B  -> Filas: " + str(len(B) +"   Columnas: " + str(len(B[0]))))
+                
+                file.close()
                 print(matriz_result)
 
                 #matriz_result2 = self.par_mult(A, B)
