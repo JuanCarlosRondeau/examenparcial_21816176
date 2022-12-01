@@ -116,46 +116,27 @@ class Cliente():
                 data = self.s.recv(64)
                 data1 = pickle.loads(data)
                 print(type(data1))
-                # data2=np.array(data1)
-                # print(data1[1])
-                # print("1")
+
                 import random
 
-                # print("2")
                 # Genero A[21535220][6]con num. aleatorios del 0 al 215, ver excel
                 A = [[random.randint(0, 250) for i in range(data1[1])]
                      for j in range(data1[0])]
                 # Genero B[6][21535220]con num. aleatorios del 0 al 215, ver excel
                 B = [[random.randint(0, 250) for i in range(data1[3])]
                      for j in range(data1[2])]
-                # print("3")
+                # Imprimo las matrices que se van a multiplicar para poder comprobar que son las correctas
                 print(A)
                 print(B)
-                #matriz_result = self.sec_mult(A, B)
 
+                # En la variable matriz_result se guarda el resultado de la multiplicación de matrices
                 matriz_result = self.sec_mult(A, B)
+
+                # Imprimo een el cliente el resultado para comprobar que todo va bien
                 print(matriz_result)
+
                 #matriz_result2 = self.par_mult(A, B)
                 # print(matriz_result2)
-                '''
-                if data:
-                    
-                    data=pickle.loads(data)
-                    print(type(data))
-                    data1=int(data)+4
-                    print(data1
-                    print(data1)
-                    print(type(data1))
-                    data2=int(data1)
-                    print(type(data2
-                    try:
-                        data1=int(data1)+12
-                        print("hola"+type(data1))
-                        print(data1)
-                    except:
-                        print(type(data1))
-                        print(data1)
-                '''
 
             except:
                 pass
