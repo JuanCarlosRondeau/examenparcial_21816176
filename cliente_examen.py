@@ -130,8 +130,12 @@ class Cliente():
                 print(B)
 
                 # En la variable matriz_result se guarda el resultado de la multiplicación de matrices
+                import time
+                Tiempo_Inicio_Secuencial = time.time()
                 matriz_result = self.sec_mult(A, B)
-
+                Tiempo_Final_Secuencial = time.time()
+                Tiempo_Total_Secuencial = Tiempo_Final_Secuencial - Tiempo_Inicio_Secuencial
+                print("Ha tardado en multiplicar de forma secueuncial " + str(Tiempo_Total_Secuencial))
                 # Imprimo een el cliente el resultado para comprobar que todo va bien
                 print(matriz_result)
 
